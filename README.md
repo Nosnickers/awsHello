@@ -2,11 +2,11 @@
 
 ## 目标
 
-建立一个 lesson1 项目，在其中编写代码。当在浏览器中访问 `http://localhost:3000/` 时，输出 `Hello World`。
+建立一个 lesson1 项目，在其中编写代码。当在浏览器中访问 `http://localhost:8080/` 时，输出 `Hello World`。
 
 ## 挑战
 
-访问 `http://localhost:3000/` 时，输出 `你好，世界`。
+访问 `http://localhost:8080/` 时，输出 `你好，世界`。
 
 ## 知识点
 
@@ -78,9 +78,9 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
 
-// 定义好我们 app 的行为之后，让它监听本地的 3000 端口。这里的第二个函数是个回调函数，会在 listen 动作成功后执行，我们这里执行了一个命令行输出操作，告诉我们监听动作已完成。
-app.listen(3000, function () {
-  console.log('app is listening at port 3000');
+// 定义好我们 app 的行为之后，让它监听本地的 8080 端口。这里的第二个函数是个回调函数，会在 listen 动作成功后执行，我们这里执行了一个命令行输出操作，告诉我们监听动作已完成。
+app.listen(8080, function () {
+  console.log('app is listening at port 8080');
 });
 ```
 
@@ -88,11 +88,11 @@ app.listen(3000, function () {
 
 `$ node app.js`
 
-这时候我们的 app 就跑起来了，终端中会输出 `app is listening at port 3000`。这时我们打开浏览器，访问 `http://localhost:3000/`，会出现 `Hello World`。如果没有出现的话，肯定是上述哪一步弄错了，自己调试一下。
+这时候我们的 app 就跑起来了，终端中会输出 `app is listening at port 8080`。这时我们打开浏览器，访问 `http://localhost:8080/`，会出现 `Hello World`。如果没有出现的话，肯定是上述哪一步弄错了，自己调试一下。
 
 ## 补充知识
 
-在这个例子中，node代码监听了3000端口，用户通过访问`http://localhost:3000/` 得到了内容，为什么呢？
+在这个例子中，node代码监听了8080端口，用户通过访问`http://localhost:8080/` 得到了内容，为什么呢？
 
 ### 端口
 
@@ -101,7 +101,7 @@ app.listen(3000, function () {
 
 端口号是一个 16位的 uint, 所以其范围为 1 to 65535 (对TCP来说, port 0 被保留，不能被使用. 对于UDP来说, source端的端口号是可选的， 为0时表示无端口).
 
-`app.listen(3000)`，进程就被打标，电脑接收到的3000端口的网络消息就会被发送给我们启动的这个进程
+`app.listen(8080)`，进程就被打标，电脑接收到的8080端口的网络消息就会被发送给我们启动的这个进程
 
 ### URL
 
@@ -116,7 +116,7 @@ scheme有我们很熟悉的`http`、`https`、`ftp`，以及著名的`ed2k`，`t
 ```
 <scheme>://<host>:<port>/<url-path>
 ```
-在上面的例子中, scheme=http, host=localhost, port=3000, url-path=/, 再联想对照一下浏览器端`window.location`对象。
+在上面的例子中, scheme=http, host=localhost, port=8080, url-path=/, 再联想对照一下浏览器端`window.location`对象。
 著名的`localhost`，你可以在电脑的hosts文件上找到
 
 [在这篇文章中提到](http://en.wikipedia.org/wiki/URI_scheme)： `URI schemes are frequently and incorrectly referred to as "protocols", or specifically as URI protocols or URL protocols, since most were originally designed to be used with a particular protocol, and often have the same name`，比较认同这个观点，尤其是今天移动设备的时代里， android和ios的开发中大量使用uri作为跨app通讯通道，把scheme理解为协议略狭隘了。
